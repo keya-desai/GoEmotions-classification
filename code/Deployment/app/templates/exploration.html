@@ -1,0 +1,124 @@
+{% extends "dashboard.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+
+{% block content%}
+
+<div class="container-fluid">
+  <div class="row content">
+      <div class="col-sm-2 sidenav hidden-xs" id="sticky-sidebar">
+        <div class="sticky-top">
+          <h4 id = "title"><a href = "{{ url_for('home') }}" style="color: white">GoEmotions</h4>
+          <hr>
+          <ul class="nav nav-pills nav-stacked">
+              <li class="nav-item"><a class="nav-link active" href="{{ url_for('exploration') }}">
+              Data Exploration</a></li>
+               <li class="nav-item"><a class="nav-link" href="{{ url_for('model') }}">Model</a></li>
+          </ul><br>
+        </div>
+      </div>
+      <br>
+
+      <div class = "col-sm-10">
+
+                <div class = "row" style="margin-top: 20px">
+          <div class="col-sm-2">
+            <div class = "well" id = "countryBox">
+                <div id = "text2" style="height: 100%">
+                    <h3>Total data</h3>
+                    <h4>58,009</h4>
+                  </div>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class = "well" id = "countryBox">
+                <div id = "text2" style="height: 100%">
+                    <h3>Training Data</h3>
+                    <h4>43,410</h4>
+                  </div>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class = "well" id = "countryBox">
+                <div id = "text2" style="height: 100%">
+                    <h4>Validation Data</h4>
+                    <h4>5427</h4>
+                  </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-2">
+            <div class = "well" id = "countryBox">
+                <div id = "text2" style="height: 100%">
+                    <h3>Testing Data</h3>
+                    <h4>5427</h4>
+                  </div>
+            </div>
+          </div>
+
+
+        </div>
+                 
+          <div class = "row" style="height: 500px; margin-top: 20px">
+            <div class = "col-sm-12" >
+               <h5 id = "heading"> Distibution of data into emotions </h5>
+              <div class = "well" style="height: 500px">
+                <div id = "treemapDiv" style="height: 100%;">
+                  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                  <script type="text/javascript" src="{{url_for('static', filename = 'js/treemap.js') }} "></script>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class = "row" style="height: 500px; margin-top: 50px">
+            <div class = "col-sm-12" >
+               <h5 id = "heading"> Sentiment data distribution </h5>
+              <div class = "well" style="height: 500px">
+                <div id = "pieDiv" style="height: 100%;">
+                  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                  <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+                  <script type="text/javascript" src="{{url_for('static', filename = 'js/pie.js') }} "></script>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class = "row" style="height: 700px; margin-top: 50px">
+            <div class = "col-sm-12" >
+               <h5 id = "heading"> Word cloud of Positive words </h5>
+              <div class = "well" style="height: 700px">
+                  <img src = "{{url_for('static', filename='images/pos_wordcloud.jpg')}}" width = "75%" height="100%" class = "center">
+              </div>
+            </div>
+          </div>
+
+          <div class = "row" style="height: 700px; margin-top: 50px">
+            <div class = "col-sm-12" >
+               <h5 id = "heading"> Word cloud of Negative words </h5>
+              <div class = "well" style="height: 700px">
+                  <img src = "{{url_for('static', filename='images/neg_wordcloud.jpg')}}" width = "100%" height="100%" class = "center">
+              </div>
+            </div>
+          </div>
+
+
+
+
+      </div>
+
+      
+
+  
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "dashboard.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+
+{% block content%}
+
+<div class="container-fluid">
+  <div class="row content">
+      <div class="col-sm-2 sidenav hidden-xs" id="sticky-sidebar">
+        <div class="sticky-top">
+          <h4 id = "title"><a href = "{{ url_for('home') }}" style="color: white">GoEmotions</h4>
+          <hr>
+          <ul class="nav nav-pills nav-stacked">
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('exploration') }}">
+              Data Exploration</a></li>
+               <li style="width: 100%;"></li>
+               <li class="nav-item"><a class="nav-link active" href="{{ url_for('model') }}">Model</a></li>
+          </ul><br>
+        </div>
+      </div>
+      <br>
+
+      <div class = "col-sm-10">
+        <div class = "row" style="margin-top: 20px; margin-left: 10px">
+          <h5> Choose number of classes</h5>
+        </div>
+
+        <div class = "row">
+          <label class="container" style="margin-left: 10px">
+          <input type="radio" id = "one" checked="checked" name="radio"> 3 classes - Positive, Negative, Neutral
+        </label>
+        </div>
+        <div class = "row">
+          <label class="container" style="margin-left: 10px">
+          <input type="radio" id = "two" name="radio"> 6 classes - Joy, Surprise, Anger, Sadness, Fear, Neutral
+        </label>
+        </div>
+
+        <div class = "row">
+          <label class="container" style="margin-left: 10px">
+          <input type="radio" id = "three" name="radio"> 28 classes - Admiration, Desire, Disapproval, Disgust, Disappointment, Embarrasement, Anger, Annoyance, Excitement, Amusement, Love, Caring, Approval, Gratitutde, Curiosity, Sadness, Grief, Remorse, Joy, Pride, Relief, Optimism , Confusion, Realization, Surprise, Fear, Nervousness
+        </label>
+      </div>
+
+
+        <div class = "row" style="margin-top: 20px; margin-left: 10px">
+          <h5>Enter Text</h5>
+        </div>
+        <div class = "row" style=" margin-left: 10px">
+          <!-- <label for="fname">Enter Text: </label> -->
+          <div class = "col-sm-6">
+            <input type="text" id="sentence" style="width: 100%">
+          </div>
+          <input type="submit" id = "submit" value="Submit">
+        </div>
+
+
+        <div class = "row" style = "margin-top: 20px; margin-left: 10px">
+          <h5>Emotion in the text</h5>
+        </div>
+        <div class = "row" style = "margin-left: 10px" >
+          <div class = "col-sm-6">
+            <div class = "well" id = "text1" style="height: 50px">
+            </div>
+          </div>
+        </div>
+
+        <script src="//d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="{{url_for('static', filename = 'js/prediction.js') }} "></script>
+
+
+
+      </div>
+
+      
+
+  
+  </div>
+</div>
+{% endblock %}
