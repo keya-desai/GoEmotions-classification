@@ -13,4 +13,4 @@ This project is part of the Capstone Project. The goals of this project are as f
   
   The original dataset and the paper can be found over here : [GoEmotions Repo](https://github.com/google-research/google-research/tree/master/goemotions)
   
-  The video of the final presentation can be found over here: [Final Presentation]()
+  The video of the final presentation can be found over here: [Final Presentation](https://youtu.be/xAr_CCHWJQs)
